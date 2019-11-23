@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MojaSzafa.Models.Clothing>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Color)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Material)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.DateAdded)</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Color)</td>
+                <td>@Html.DisplayFor(modelItem => item.Material)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning" style="float: left">Edytuj</a> 
+                    <form asp-action="Delete" asp-route-id="@item.Id" style="float: left; margin-left: 10px">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Usuń
+                        </button>
+                    </form>
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

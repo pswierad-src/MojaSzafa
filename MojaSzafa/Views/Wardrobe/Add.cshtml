@@ -1,0 +1,39 @@
+﻿@model MojaSzafa.Models.Clothing
+
+@{ 
+    ViewData["Title"] = "Dodaj";
+}
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Add">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Color" class="control-label"></label>
+                    <input asp-for="Color" class="form-control" />
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Material" class="control-label"></label>
+                    <input asp-for="Material" class="form-control" />
+                    <span asp-validation-for="Material" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">                    
+                    <label asp-for="DateAdded" class="control-label"></label>
+                    <input asp-for="DateAdded" class="form-control" type="date"/>   
+                    <span asp-validation-for="DateAdded" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Dodaj do szafy!" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
