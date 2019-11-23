@@ -1,18 +1,38 @@
-﻿@model IEnumerable<MojaSzafa.Models.Clothing>
+﻿@model Pagination<MojaSzafa.Models.Clothing>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Zawartość Szafy</h2>
+
+<form asp-action="Index" method="get" class="form-horizontal float-right" asp-route-sortingOrder="@ViewData["NameSortParm"]" asp-route-pageNum="@(Model._pageIndex)" asp-route-filter="@ViewData["filter"]">
+    <div class="form-group row">
+        <div class="col">
+            <input type="text" name="filter" class="form-control" value="@ViewData["filter"]" placeholder="Szukana fraza"/>
+        </div>
+        <div class="col">
+            <input type="submit" class="btn btn-info" value="Filtruj" />
+        </div>
+    </div>
+</form>
 
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Color)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Material)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.DateAdded)</th>
-            <th scope="col"></th>
+            <th>
+                <a asp-action="Index" asp-route-sortingOrder="@ViewData["NameSortParm"]" asp-route-pageNum="@(Model._pageIndex)" asp-route-filter="@ViewData["filter"]">@Html.DisplayNameFor(model => model._modelItem.Name)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortingOrder="@ViewData["ColorSortParm"]" asp-route-pageNum="@(Model._pageIndex)" asp-route-filter="@ViewData["filter"]">@Html.DisplayNameFor(model => model._modelItem.Color)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortingOrder="@ViewData["MaterialSortParm"]" asp-route-pageNum="@(Model._pageIndex)" asp-route-filter="@ViewData["filter"]">@Html.DisplayNameFor(model => model._modelItem.Material)</a>
+            </th>
+            <th>
+            <a asp-action="Index" asp-route-sortingOrder="@ViewData["DateSortParm"]" asp-route-pageNum="@(Model._pageIndex)" asp-route-filter="@ViewData["filter"]">@Html.DisplayNameFor(model => model._modelItem.DateAdded)</a>
+            </th>
+            <th scope="col">
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -24,17 +44,26 @@
                 <td>@Html.DisplayFor(modelItem => item.Material)</td>
                 <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning" style="float: left">Edytuj</a> 
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning" style="float: left">Edytuj</a>
                     <form asp-action="Delete" asp-route-id="@item.Id" style="float: left; margin-left: 10px">
                         <button type="submit" class="btn btn-sm btn-danger">
                             Usuń
                         </button>
                     </form>
-                </td>                
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index" asp-route-sortingOrder="@ViewData["CurrentSortingMethod"]" asp-route-pageNum="@(Model._pageIndex - 1)" asp-route-filter="@ViewData["filter"]" class="btn btn-default @prevDisabled">Poprzednia</a>
+
+<a asp-action="Index" asp-route-sortingOrder="@ViewData["CurrentSortingMethod"]" asp-route-pageNum="@(Model._pageIndex + 1)" asp-route-filter="@ViewData["filter"]" class="btn btn-default @nextDisabled">Następna</a>
 
 
 
