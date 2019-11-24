@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace MojaSzafa.Models
 {
+    /// <summary>
+    /// Helper class for creating paginated list. Based of List<T> class.
+    /// </summary>
+    /// <typeparam name="T">Type of item in list</typeparam>
     public class Pagination<T> : List<T>
     {
         public int _pageIndex { get; set; }

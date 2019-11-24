@@ -1,15 +1,19 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MojaSzafa.Data;
+using MojaSzafa.IoC;
+using System;
 
 namespace MojaSzafa
 {
     public class Startup
     {
-        public IConfiguration _config;
+        public IConfiguration _config { get; }
+        public IContainer Container { get; set; }
 
         public Startup(IConfiguration config)
         {
@@ -18,7 +22,7 @@ namespace MojaSzafa
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
 
@@ -28,6 +32,12 @@ namespace MojaSzafa
 
             services.AddHttpClient();
 
+            var builder = new ContainerBuilder();
+            builder.Populate(services);
+            builder.RegisterModule<ContainerModule>();
+            Container = builder.Build();
+
+            return new AutofacServiceProvider(Container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

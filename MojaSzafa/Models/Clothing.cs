@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MojaSzafa.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -29,7 +30,8 @@ namespace MojaSzafa.Models
         [DisplayName("Kiedy kupiono")]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
         [DataType(DataType.Date)]
-        [Required(ErrorMessage ="Data jest wymagana")]
+        [Required(ErrorMessage = "Data jest wymagana")]
+        [DateLesserThanOrEqueal(ErrorMessage = "Data nie może być późniejsza niż dzisiaj")]
         public DateTime DateAdded { get; set; }
 
     }
