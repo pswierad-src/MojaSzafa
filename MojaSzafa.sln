@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MojaSzafa", "MojaSzafa\MojaSzafa.csproj", "{3AE86585-75C4-4379-913A-F01C272AE132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MojaSzafa.TESTS", "MojaSzafa.TESTS\MojaSzafa.TESTS.csproj", "{09835E47-D627-466D-87B0-567993343B0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MojaSzafa.TESTS", "MojaSzafa.TESTS\MojaSzafa.TESTS.csproj", "{09835E47-D627-466D-87B0-567993343B0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DDC42EB4-3996-4C10-8545-59F146D41061}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
