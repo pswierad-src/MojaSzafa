@@ -55,6 +55,7 @@ namespace MojaSzafa.Repositories
         /// <param name="clothing">Edited piece of clothing</param>
         public void Edit(Clothing clothing)
         {
+            _context.Update(clothing);
             _context.SaveChanges();
         }
 

@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Autofac;
 using MojaSzafa.Repositories;
-using MojaSzafa.Services;
 
 namespace MojaSzafa.IoC
 {
@@ -23,12 +22,6 @@ namespace MojaSzafa.IoC
             //Loads all repositories interfaces
             builder.RegisterAssemblyTypes(assembly)
                 .Where(x => x.IsAssignableTo<IRepository>())
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
-
-            //Loads all service interfaces
-            builder.RegisterAssemblyTypes(assembly)
-                .Where(x => x.IsAssignableTo<IService>())
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 

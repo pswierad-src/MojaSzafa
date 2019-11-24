@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using MojaSzafa.Models;
-using MojaSzafa.Services;
+using MojaSzafa.Repositories;
 
 namespace MojaSzafa.Controllers
 {
@@ -11,11 +11,11 @@ namespace MojaSzafa.Controllers
     /// </summary>
     public class WardrobeController : Controller
     {
-        private readonly IClothingService _clothingService;
+        private readonly IClothingRepository _clothingRepository;
 
-        public WardrobeController(IClothingService clothingService)
+        public WardrobeController(IClothingRepository clothingRepository)
         {
-            _clothingService = clothingService;
+            _clothingRepository = clothingRepository;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace MojaSzafa.Controllers
         /// <returns>List of clothes</returns>
         public IActionResult Index(string search, int? pageNum, string filter, string sortingOrder)
         {
-            var clothes = _clothingService.GetAll(); 
+            var clothes = _clothingRepository.GetAll(); 
 
             #region pagination
             if (search != null)
@@ -95,7 +95,7 @@ namespace MojaSzafa.Controllers
         {
             if (ModelState.IsValid)
             {
-                _clothingService.Add(clothing);
+                _clothingRepository.Add(clothing);
                 return RedirectToAction(nameof(Index));
             }
             return View(clothing);
@@ -112,7 +112,7 @@ namespace MojaSzafa.Controllers
             {
                 return NotFound();
             }
-            var clothing = _clothingService.GetById((int)id);
+            var clothing = _clothingRepository.GetById((int)id);
             if (clothing == null)
             {
                 return NotFound();
@@ -136,7 +136,7 @@ namespace MojaSzafa.Controllers
             }
             if (ModelState.IsValid)
             {
-                _clothingService.Edit(clothing);
+                _clothingRepository.Edit(clothing);
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -157,7 +157,12 @@ namespace MojaSzafa.Controllers
             {
                 return NotFound();
             }
-            _clothingService.Delete((int)id);
+            var clothing = _clothingRepository.GetById((int)id);
+            if (clothing == null)
+            {
+                return NotFound();
+            }
+            _clothingRepository.Remove(clothing);
             return RedirectToAction(nameof(Index));
         }
 

@@ -17,4 +17,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <!--GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp2.1\Documentation.xml</DocumentationFile-->
+  </PropertyGroup>
+
 </Project>
