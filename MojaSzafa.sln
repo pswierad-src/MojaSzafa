@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MojaSzafa.DB", "MojaSzafa.DB\MojaSzafa.DB.csproj", "{0B1351D4-2836-48DE-AE04-58F90C835498}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MojaSzafa.INFRASTRUCTURE", "MojaSzafa.INFRASTRUCTURE\MojaSzafa.INFRASTRUCTURE.csproj", "{DB546770-29D7-4852-9712-D25C43549947}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{09835E47-D627-466D-87B0-567993343B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09835E47-D627-466D-87B0-567993343B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09835E47-D627-466D-87B0-567993343B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1351D4-2836-48DE-AE04-58F90C835498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1351D4-2836-48DE-AE04-58F90C835498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1351D4-2836-48DE-AE04-58F90C835498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1351D4-2836-48DE-AE04-58F90C835498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB546770-29D7-4852-9712-D25C43549947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB546770-29D7-4852-9712-D25C43549947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB546770-29D7-4852-9712-D25C43549947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB546770-29D7-4852-9712-D25C43549947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
