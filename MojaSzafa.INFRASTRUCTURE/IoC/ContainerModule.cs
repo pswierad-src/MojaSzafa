@@ -1,8 +1,8 @@
 ﻿using Autofac;
+using System.Reflection;
 using MojaSzafa.DB.Interfaces;
 using MojaSzafa.INFRASTRUCTURE.Interfaces;
 using MojaSzafa.INFRASTRUCTURE.Mappers;
-using System.Reflection;
 
 namespace MojaSzafa.INFRASTRUCTURE.IoC
 {

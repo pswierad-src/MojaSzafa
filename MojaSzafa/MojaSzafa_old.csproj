@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Company>PGS Software S.A.</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191123160440_initial.cs" />
+    <Compile Remove="Migrations\20191123160440_initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.4" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!--GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp2.1\Documentation.xml</DocumentationFile-->
+  </PropertyGroup>
+
+</Project>

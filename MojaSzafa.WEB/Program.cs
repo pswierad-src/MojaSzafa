@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using MojaSzafa.Data;
+using MojaSzafa.DB;
 
-namespace MojaSzafa
+namespace MojaSzafa.WEB
 {
     public class Program
     {
